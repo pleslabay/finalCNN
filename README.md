@@ -18,9 +18,9 @@ Puede verse en el directorio que anduvo bien, aún con una tendencia a estancars
 
 ***
 
--Finalmente de yapa, dediqué bastante tiempo a modificar la notebook e implementar lo mas cercano al paper posible. 
+-Finalmente de yapa, dediqué bastante tiempo a modificar la notebook e implementar lo mas cercano al paper posible. (r1k o r10k se refiere al ratio content/style, 1/1000 o 1/10000)
 
-1. Modifiqué el calculo de las loss, ya que habia errores con el divisor en style.
+1. Modifiqué el calculo de las loss, ya que habia errores con el divisor en style. Y apagué el total_variation_weight que no está en el paper.
 2. Lo mas interesante de todo es haber implementado que arranque de content con white_noise (wn) el lugar de la imagen base, y funciona!!! :-)
 3. También probé la enorme diferencia que implica usar para content bloques con menos abstraccion de la vgg, avanza mucho mas lento con el pasaje de estilo.
 4. El test final fue aprovechar los bound de la funcion $fmin_l_bfgs_b$ y, teniendo en cuenta los cambios que mete $preprocess_image$, calcular los bound para reducir el clip en brillo en cada pixel. Acá es notable cuanto mas contraste se logra en la imagen reconstruida, considerando que partimos de white_noise... 
